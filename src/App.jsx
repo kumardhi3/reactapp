@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 import './App.css';
 import chef from "./images/DHiraj.PNG";
 function Header({ name, year}) { 
@@ -48,17 +48,19 @@ function Main({dishes, openStatus, onStatus }) {
 }
 
 function App() {
-  const [status, setStatus] = useState(true);
-
+  // const [status, setStatus] = useState(true);
+  const [status, toggle] = useReducer(
+    (status)=> !status, 
+  )
   return (
   <div>
     <h1>The Restaurant is Currently {" "} { status ? "Open":"Closed" }</h1>
-    <button onClick={() => setStatus(!status)}> {status ? "Closed":"Open"} Restaurant</button>
+    <button onClick={ toggle }> {status ? "Closed":"Open"} Restaurant</button>
   <Header name="Dhiraj" year ={new Date().getFullYear()}/>
   <Main 
   dishes = { dishObjects }
   openStatus = { status }
-  onStatus = { setStatus }
+  onStatus = { toggle }
    />
   </div>
   );
