@@ -22,11 +22,11 @@ const dishObjects = items.map((dish, i ) => ({
   title: dish
 }));
 
-function Main({dishes}) { 
+function Main({dishes, openStatus }) { 
   return (
     <>
       <div>
-        <h2>Welcome to My Restaurant</h2>
+        <h2>Welcome to My Restaurant! it's {""}{ openStatus?"Open" : "Closed" }</h2>
       </div> 
       <main>
         <img 
@@ -50,10 +50,10 @@ function App() {
 
   return (
   <div>
-    <h1>The Restaurant is Currently { status ? "Open":"Closed" }</h1>
+    <h1>The Restaurant is Currently {" "} { status ? "Open":"Closed" }</h1>
     <button onClick={() => setStaus(!status)}> {status ? "Closed":"Open"} Restaurant</button>
   <Header name="Dhiraj" year ={new Date().getFullYear()}/>
-    <Main dishes = {dishObjects} />
+  <Main dishes = { dishObjects } openStatus = { status } />
   </div>
   );
 
