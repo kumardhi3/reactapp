@@ -6,17 +6,31 @@ function Header({ name, year}) {
       <p>Copyright: { year }</p>
     </header>
     );
+}
 
+const  items = [
+  "Chiken Tikka",
+  "Chiken do Pyaza",
+  "Chilly Chiken"
+
+];
+
+function Main({dishes}) { 
+  return (
+      <ul>
+        {dishes.map((dish)=> (
+          <li style={{ listStyleType : "none"}}>{dish}</li>
+        ))}
+      </ul>
+    );
 }
 
 function App() {
   return (
   <div>
   <Header name="Dhiraj" year ={new Date().getFullYear()}/>
-  <main>
-  <h2>Welcome to my kitchen</h2>
-  </main>
-  </div>
+    <Main dishes = {items} />
+    </div>
   );
 
 }
