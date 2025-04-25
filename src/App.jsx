@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './App.css';
 import chef from "./images/DHiraj.PNG";
 function Header({ name, year}) { 
@@ -24,7 +24,7 @@ const dishObjects = items.map((dish, i ) => ({
 
 function Main({dishes}) { 
   return (
-    <React.Fragment>
+    <>
       <div>
         <h2>Welcome to My Resturatnt</h2>
       </div> 
@@ -40,7 +40,7 @@ function Main({dishes}) {
           ))}
         </ul>
       </main>
-    </React.Fragment>
+    </>
 
     );
 }
